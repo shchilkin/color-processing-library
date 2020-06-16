@@ -3,53 +3,43 @@ const expect = chai.expect;
 const assert = chai.assert;
 
 // calculateColors function Test cases
-const calculateColor = require('../src/calculateColor');
-const inputGreaterThan255 = calculateColor(255, 120);
-const inputLessThan0 = calculateColor(0, 120);
-const inputInRightRange = calculateColor(225, 85);
-const inputInRightRangeAndTypeString = calculateColor("225", "85");
-const inputInvalid = calculateColor('two hundred and twenty five', "eighty five");
-
+const calculateColor = require('../src/index').calculateColor;
 describe('calculateColor Function', () => {
     it('Check output when input is greater than 255', () => {
-        expect(inputGreaterThan255).to.equal(255);
+        expect(calculateColor(255, 120)).to.equal(255);
     });
     it('Check output when input is less than 0', () => {
-        expect(inputLessThan0).to.equal(0);
+        expect(calculateColor(0, 120)).to.equal(0);
     });
     it('Check output when input is in range between 0 and 255', () => {
-        expect(inputInRightRange).to.equal(191);
+        expect(calculateColor(225, 85)).to.equal(191);
     });
     it('Check output when input is in range between 0 and 255', () => {
-        expect(inputInRightRange).to.equal(191);
+        expect(calculateColor(225, 85)).to.equal(191);
     });
     it('Check output when input is in range between 0 and 255 and input is type string', () => {
-        expect(inputInRightRangeAndTypeString).to.equal(191);
+        expect(calculateColor("225", "85")).to.equal(191);
     });
     it('Check output when input is not valid', () => {
-        assert.deepEqual(inputInvalid, NaN, 'value should be NaN');
+        assert.deepEqual(calculateColor('two hundred and twenty five', "eighty five"),
+            NaN, 'value should be NaN');
     });
 });
 
 // getFontColor function Test cases
-const getFontColor = require('../src/getFontColor');
-const darkBackgroundInput = getFontColor(30,30,30);
-const lightBackgroundInput = getFontColor(240,240,240);
-const NaNInput = getFontColor(NaN,NaN,NaN);
-const stringInput = getFontColor('red','green','blue');
-
+const getFontColor = require('../src/index').getFontColor;
 describe('getFontColor Function', () => {
     it('Check output with dark background', () => {
-        expect(darkBackgroundInput).to.equal("#FFF");
+        expect(getFontColor(30,30,30)).to.equal("#FFF");
     });
     it('Check output with light background', () => {
-        expect(lightBackgroundInput).to.equal("#000");
+        expect(getFontColor(240,240,240)).to.equal("#000");
     });
     it('Check output with invalid input (NaN)', () => {
-        expect(NaNInput).to.equal("#FFF");
+        expect(getFontColor(NaN,NaN,NaN)).to.equal("#FFF");
     });
     it('Check output with invalid input (String)', () => {
-        expect(stringInput).to.equal("#FFF");
+        expect(getFontColor('red','green','blue')).to.equal("#FFF");
     });
     it('Check output with empty input', () => {
         expect(getFontColor()).to.equal("#FFF");
@@ -57,25 +47,64 @@ describe('getFontColor Function', () => {
 });
 
 // toHex function Test cases
-const toHex = require('../src/toHex');
-const value255 = toHex(255);
-const value0 = toHex(0);
-const valueInvalid = toHex('Hi');
-
+const toHex = require('../src/index').toHex;
 describe('toHex Function', () => {
     it('Check output with 255 as an input', () => {
-        expect(value255).to.equal("FF");
+        expect(toHex(255)).to.equal("FF");
+    });
+    it('Check output with 300 as an input', () => {
+        expect(toHex(300)).to.equal("12C");
     });
     it('Check output with 0 as an input', () => {
-        expect(value0).to.equal("00");
+        expect(toHex(0)).to.equal("00");
     });
     it('Check output with Invalid value as an input', () => {
-        expect(valueInvalid).to.equal("NAN");
+        expect(toHex('Hi')).to.equal("NAN");
     });
 });
 
+// hexToRGB function Test cases
+const hexToRGB = require('../src/index').hexToRGB;
+describe('toHex Function', () => {
+    it('Check output with #ED2939 as an input(valid input data)', () => {
+        expect(hexToRGB('#ed2939')).to.eql({ Red:237, Green:41, Blue:57 });
+    });
+    it('Check output with empty input', () => {
+        expect(hexToRGB()).to.equal("Invalid Hex code value");
+    });
+    it('Check output with invalid input', () => {
+        expect(hexToRGB('#Helloo')).to.equal("Invalid Hex code value");
+    });
+});
 
-
-
-
-
+// isHexColorValid function test cases
+const isHexColorValid = require('../src/index').isHexColorValid;
+describe('isHexColorValid Function', () => {
+    it('Check output  with empty input', () => {
+        expect(isHexColorValid()).to.equal(false);
+    });
+    it('Check output with less than 3 characters hex color code without# as an input', () => {
+        expect(isHexColorValid('FF')).to.equal(false);
+    });
+    it('Check output with less than 3 characters hex color code as an input', () => {
+        expect(isHexColorValid('#FF')).to.equal(false);
+    });
+    it('Check output with 3 characters hex color code as an input', () => {
+        expect(isHexColorValid('#FFF')).to.equal(true);
+    });
+    it('Check output with 3 characters hex color code without # as an input', () => {
+        expect(isHexColorValid('000')).to.equal(true);
+    });
+    it('Check output with 6 characters hex color code as an input', () => {
+        expect(isHexColorValid('#ED2939')).to.equal(true);
+    });
+    it('Check output with 6 characters hex color code without #  as an input', () => {
+        expect(isHexColorValid('ED2939')).to.equal(true);
+    });
+    it('Check output with more than 6 characters hex value as an input', () => {
+        expect(isHexColorValid('ABDBCCC')).to.equal(false);
+    });
+    it('Check output with more than 6 characters hex value without # as an input', () => {
+        expect(isHexColorValid('ABCDEFAB')).to.equal(false);
+    });
+});

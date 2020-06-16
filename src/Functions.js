@@ -25,34 +25,7 @@ export function fontColorHex(Hex) {
         return "#FFF"
     }
 }
-export function hexToRGB(hexColor) {
-    let hexWithoutHash = hexColor.replace('#','')
-    if (hexWithoutHash.length === 3) {
-        return {
-            Red: parseInt(`${hexWithoutHash.slice(0, 1)}${hexWithoutHash.slice(0, 1)}`, 16),
-            Green: parseInt(`${hexWithoutHash.slice(1, 2)}${hexWithoutHash.slice(1, 2)}`, 16),
-            Blue: parseInt(`${hexWithoutHash.slice(2, 3)}${hexWithoutHash.slice(2, 3)}`, 16)
-        }
-    }
-    if (hexWithoutHash.length === 6){
-        return {
-            Red: parseInt(`${hexWithoutHash.slice(0, 2)}`, 16),
-            Green: parseInt(`${hexWithoutHash.slice(2, 4)}`, 16),
-            Blue: parseInt(`${hexWithoutHash.slice(4, 6)}`, 16)
-        }
-    }
-    else return "Invalid Hex code value"
-}
-export function isHexValid(hex, checkWithHash = false) {
-    // TODO Check hex only with hash
 
-    let hexRegExp = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-    let hexRegExpWithHash = /(^#[0-9A-Fa-f]{6})|(^#[0-9A-Fa-f]{3})/; // with #
-
-    const checkCondition = checkWithHash ? hex.match(hexRegExpWithHash) : hex.match(hexRegExp);
-
-    return checkCondition !== null;
-}
 export function numberRangeCheck(colorValue) {
     if (parseInt(colorValue) > 255) {
         return 255
@@ -62,6 +35,7 @@ export function numberRangeCheck(colorValue) {
         return parseInt(colorValue)
     }
 }
+
 export function calculateShadowFactor(number) {
     let factor = parseInt(number) / 100
     if (factor > 2) {
@@ -72,6 +46,9 @@ export function calculateShadowFactor(number) {
         return factor
     }
 }
+
+
+
 export function getRandomInt(maximumNumber) {
     return Math.floor(Math.random() * Math.floor(maximumNumber+1));
 }
