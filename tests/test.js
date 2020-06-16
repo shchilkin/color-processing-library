@@ -63,13 +63,45 @@ describe('toHex Function', () => {
     });
 });
 
-// hexToRGB function Test cases
-const hexToRGB = require('../src/index').hexToRGB;
-describe('toHex Function', () => {
-    it('Check output with #ED2939 as an input(valid input data)', () => {
-        expect(hexToRGB('#ed2939')).to.eql({ Red:237, Green:41, Blue:57 });
+// // hexToRGB function Test cases
+// const hexToRGB = require('../src/index').hexToRGB;
+// describe('toHex Function', () => {
+//     it('Check output with #ED2939 as an input(valid input data)', () => {
+//         expect(hexToRGB('#ed2939')).to.eql({ Red:237, Green:41, Blue:57 });
+//     });
+//     it('Check output with empty input', () => {
+//         expect(hexToRGB()).to.equal("Invalid Hex code value");
+//     });
+// });
+
+// isHexColorValid function test cases
+const isHexColorValid = require('../src/index').isHexColorValid;
+describe('isHexColorValid Function', () => {
+    it('Check output  with empty input', () => {
+        expect(isHexColorValid()).to.equal(false);
     });
-    it('Check output with empty input', () => {
-        expect(hexToRGB()).to.equal("Invalid Hex code value");
+    it('Check output with less than 3 characters hex color code without# as an input', () => {
+        expect(isHexColorValid('FF')).to.equal(false);
+    });
+    it('Check output with less than 3 characters hex color code as an input', () => {
+        expect(isHexColorValid('#FF')).to.equal(false);
+    });
+    it('Check output with 3 characters hex color code as an input', () => {
+        expect(isHexColorValid('#FFF')).to.equal(true);
+    });
+    it('Check output with 3 characters hex color code without # as an input', () => {
+        expect(isHexColorValid('000')).to.equal(true);
+    });
+    it('Check output with 6 characters hex color code as an input', () => {
+        expect(isHexColorValid('#ED2939')).to.equal(true);
+    });
+    it('Check output with 6 characters hex color code without #  as an input', () => {
+        expect(isHexColorValid('ED2939')).to.equal(true);
+    });
+    it('Check output with more than 6 characters hex value as an input', () => {
+        expect(isHexColorValid('ABDBCCC')).to.equal(false);
+    });
+    it('Check output with more than 6 characters hex value without # as an input', () => {
+        expect(isHexColorValid('ABCDEFAB')).to.equal(false);
     });
 });

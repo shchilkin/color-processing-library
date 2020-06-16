@@ -5,6 +5,8 @@
  */
 
 module.exports = function(hex) {
+    if (hex  === undefined) return false;
+
     let hexRegExp = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
     let hexRegExpWithHash = /(^#[0-9A-Fa-f]{6})|(^#[0-9A-Fa-f]{3})/; // with #
 
