@@ -63,8 +63,13 @@ describe('toHex Function', () => {
     });
 });
 
-
-
-
-
-
+// hexToRGB function Test cases
+const hexToRGB = require('../src/index').hexToRGB;
+describe('toHex Function', () => {
+    it('Check output with #ED2939 as an input(valid input data)', () => {
+        expect(hexToRGB('#ed2939')).to.eql({ Red:237, Green:41, Blue:57 });
+    });
+    it('Check output with empty input', () => {
+        expect(hexToRGB()).to.equal("Invalid Hex code value");
+    });
+});

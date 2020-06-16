@@ -26,16 +26,6 @@ export function fontColorHex(Hex) {
     }
 }
 
-export function isHexValid(hex, checkWithHash = false) {
-    // TODO Check hex only with hash
-
-    let hexRegExp = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-    let hexRegExpWithHash = /(^#[0-9A-Fa-f]{6})|(^#[0-9A-Fa-f]{3})/; // with #
-
-    const checkCondition = checkWithHash ? hex.match(hexRegExpWithHash) : hex.match(hexRegExp);
-
-    return checkCondition !== null;
-}
 export function numberRangeCheck(colorValue) {
     if (parseInt(colorValue) > 255) {
         return 255
