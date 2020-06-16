@@ -4,6 +4,7 @@ const assert = chai.assert;
 
 const calculateColor = require('../src/calculateColor');
 
+// calculate Colors Test cases
 const outputGreaterThan255 = calculateColor(255, 120);
 const outputLessThan0 = calculateColor(0, 120);
 const outputInRightRange = calculateColor(225, 85);

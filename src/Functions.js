@@ -1,27 +1,3 @@
-export function calculateColor(color, factor){
-    let _color = color * factor;
-    if(_color > 255) {
-        return 255
-    }
-    else {
-        return Math.round(_color)
-    }
-}
-export function calculateShadows(Red, Green, Blue, LightShadowFactor, DarkShadowFactor) {
-    return {
-        ligherShadowArray: [
-            calculateColor(Red, LightShadowFactor),
-            calculateColor(Green, LightShadowFactor),
-            calculateColor(Blue, LightShadowFactor)
-        ],
-        darkerShadowArray: [
-            calculateColor(Red, DarkShadowFactor),
-            calculateColor(Green, DarkShadowFactor),
-            calculateColor(Blue, DarkShadowFactor)
-        ]
-    }
-}
-// TODO refactor calculateShadows because calculateShadows and calculateTintAndShades have similar functionality
 export function calculateTintAndShades(red, green, blue, factor = 85,outputMode = 'hex') {
     let _factor = factor / 100;
     switch (outputMode) {
@@ -35,15 +11,6 @@ export function calculateTintAndShades(red, green, blue, factor = 85,outputMode 
             let hexGreen = toHex(calculateColor(green, _factor));
             let hexBlue = toHex(calculateColor(blue, _factor))
             return `#${hexRed}${hexGreen}${hexBlue}`
-    }
-}
-export function fontColor(red, green, blue) {
-    let luminance = ((0.299 * red) + (0.587 * green) + (0.114 * blue))/255;
-
-    if (luminance > 0.5) {
-        return "#000"
-    } else {
-        return "#FFF"
     }
 }
 export function fontColorHex(Hex) {
