@@ -125,3 +125,15 @@ describe('isHexColorValid Function', () => {
         expect(isHexColorValid('ABCDEFAB')).to.equal(false);
     });
 });
+
+//getTintsAndShades function test cases
+const getTintsAndShades = require('../src/index').getTintsAndShades;
+describe('isHexColorValid Function', () => {
+    //  TODO Add more tests
+    it('Check output  with valid color value, output is rgb', () => {
+        expect(getTintsAndShades(255,255,255)).to.equal('#D9D9D9');
+    });
+    it('Check output  with valid color value, output is hexadecimal', () => {
+        expect(getTintsAndShades(255,255,255,85,'rgb')).to.equal('rgb(217,217,217)');
+    });
+});

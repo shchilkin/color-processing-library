@@ -1,19 +1,3 @@
-export function calculateTintAndShades(red, green, blue, factor = 85,outputMode = 'hex') {
-    let _factor = factor / 100;
-    switch (outputMode) {
-        case "rgb":
-            return `rgb(${calculateColor(red, _factor)},
-            ${calculateColor(green, _factor)},
-            ${calculateColor(blue, _factor)}`
-        default:
-        case "hex":
-            let hexRed = toHex(calculateColor(red, _factor));
-            let hexGreen = toHex(calculateColor(green, _factor));
-            let hexBlue = toHex(calculateColor(blue, _factor))
-            return `#${hexRed}${hexGreen}${hexBlue}`
-    }
-}
-
 export function numberRangeCheck(colorValue) {
     if (parseInt(colorValue) > 255) {
         return 255
@@ -34,9 +18,6 @@ export function calculateShadowFactor(number) {
         return factor
     }
 }
-
-
-
 
 export function getRandomInt(maximumNumber) {
     return Math.floor(Math.random() * Math.floor(maximumNumber+1));
