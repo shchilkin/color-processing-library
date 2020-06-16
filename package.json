@@ -1,0 +1,23 @@
+{
+  "name": "color-processing-library",
+  "version": "1.0.0",
+  "description": "A small library for color processing",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soft-ui-generator/color-processing-library.git"
+  },
+  "author": "Aleksandr Shchilkin <crazyredkitten@icloud.com> (https://crazyredkitten.media/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soft-ui-generator/color-processing-library/issues"
+  },
+  "homepage": "https://github.com/soft-ui-generator/color-processing-library#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
+}
