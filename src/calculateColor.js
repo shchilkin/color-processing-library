@@ -1,6 +1,6 @@
 /**
  * @param {number} | color | expected input 1 - 255
- * @param {number} | factor |
+ * @param {number} | factor
  * @returns {number} | new color value in percent of the initial color
  */
 
