@@ -14,18 +14,6 @@ export function calculateTintAndShades(red, green, blue, factor = 85,outputMode 
     }
 }
 
-export function fontColorHex(Hex) {
-    const {Red, Green, Blue} = hexToRGB(Hex);
-
-    let luminance = ((0.299 * Red) + (0.587 * Green) + (0.114 * Blue))/255;
-
-    if (luminance > 0.5) {
-        return "#000"
-    } else {
-        return "#FFF"
-    }
-}
-
 export function numberRangeCheck(colorValue) {
     if (parseInt(colorValue) > 255) {
         return 255
@@ -46,6 +34,7 @@ export function calculateShadowFactor(number) {
         return factor
     }
 }
+
 
 
 
