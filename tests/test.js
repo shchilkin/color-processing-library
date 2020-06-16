@@ -46,6 +46,23 @@ describe('getFontColor Function', () => {
     });
 });
 
+// getFontColorHex function Test cases
+const getFontColorHex = require('../src/index').getFontColorHex;
+describe('getFontColorHex Function', () => {
+    it('Check output with dark background', () => {
+        expect(getFontColorHex('#303030')).to.equal("#FFF");
+    });
+    it('Check output with light background', () => {
+        expect(getFontColorHex('#F0F0F0')).to.equal("#000");
+    });
+    it('Check output with invalid input (String)', () => {
+        expect(getFontColorHex('#Hellooo')).to.equal("#FFF");
+    });
+    it('Check output with empty input', () => {
+        expect(getFontColorHex()).to.equal("#FFF");
+    });
+});
+
 // toHex function Test cases
 const toHex = require('../src/index').toHex;
 describe('toHex Function', () => {
