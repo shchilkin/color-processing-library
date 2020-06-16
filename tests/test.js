@@ -2,10 +2,8 @@ const chai = require('chai');
 const expect = chai.expect;
 const assert = chai.assert;
 
+// calculateColors function Test cases
 const calculateColor = require('../src/calculateColor');
-const getFontColor = require('../src/getFontColor');
-
-// calculate Colors Test cases
 const inputGreaterThan255 = calculateColor(255, 120);
 const inputLessThan0 = calculateColor(0, 120);
 const inputInRightRange = calculateColor(225, 85);
@@ -33,8 +31,8 @@ describe('calculateColor Function', () => {
     });
 });
 
-
-// get Font Color Test cases
+// getFontColor function Test cases
+const getFontColor = require('../src/getFontColor');
 const darkBackgroundInput = getFontColor(30,30,30);
 const lightBackgroundInput = getFontColor(240,240,240);
 const NaNInput = getFontColor(NaN,NaN,NaN);
@@ -57,6 +55,26 @@ describe('getFontColor Function', () => {
         expect(getFontColor()).to.equal("#FFF");
     });
 });
+
+// toHex function Test cases
+const toHex = require('../src/toHex');
+const value255 = toHex(255);
+const value0 = toHex(0);
+const valueInvalid = toHex('Hi');
+
+describe('toHex Function', () => {
+    it('Check output with 255 as an input', () => {
+        expect(value255).to.equal("FF");
+    });
+    it('Check output with 0 as an input', () => {
+        expect(value0).to.equal("00");
+    });
+    it('Check output with Invalid value as an input', () => {
+        expect(valueInvalid).to.equal("NAN");
+    });
+});
+
+
 
 
 

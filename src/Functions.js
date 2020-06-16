@@ -13,6 +13,7 @@ export function calculateTintAndShades(red, green, blue, factor = 85,outputMode 
             return `#${hexRed}${hexGreen}${hexBlue}`
     }
 }
+
 export function fontColorHex(Hex) {
     const {Red, Green, Blue} = hexToRGB(Hex);
 
@@ -23,15 +24,6 @@ export function fontColorHex(Hex) {
     } else {
         return "#FFF"
     }
-}
-export function toHex(colorValue){
-    let color
-    if (colorValue <= 15) {
-        color = `0${Number(colorValue).toString(16).toUpperCase()}`
-    } else {
-        color = `${Number(colorValue).toString(16).toUpperCase()}`
-    }
-    return color;
 }
 export function hexToRGB(hexColor) {
     let hexWithoutHash = hexColor.replace('#','')
@@ -49,7 +41,6 @@ export function hexToRGB(hexColor) {
             Blue: parseInt(`${hexWithoutHash.slice(4, 6)}`, 16)
         }
     }
-
     else return "Invalid Hex code value"
 }
 export function isHexValid(hex, checkWithHash = false) {
