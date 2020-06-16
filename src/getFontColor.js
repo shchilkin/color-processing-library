@@ -1,5 +1,5 @@
 /**
- Function calculates and returns either black or whie hexadecimal color code
+ Function calculates and returns either black or white hexadecimal color code
  depend on calculation to match the input color
 
  * @param {number} | Red value | expected input 0 - 255
