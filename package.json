@@ -1,5 +1,5 @@
 {
-  "name": "@soft-ui-generator/color-processing-library",
+  "name": "color-processing-library",
   "version": "1.1.0",
   "description": "A small library for color processing",
   "main": "src/index.js",
@@ -19,6 +19,5 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.0.1"
-  },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/soft-ui-generator" }
+  }
 }
