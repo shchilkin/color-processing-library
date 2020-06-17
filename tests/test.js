@@ -137,3 +137,20 @@ describe('isHexColorValid Function', () => {
         expect(getTintsAndShades(255,255,255,85,'rgb')).to.equal('rgb(217,217,217)');
     });
 });
+
+//getTintsAndShades function test cases
+const invertFontColor = require('../src/index').invertFontColor;
+describe('invertFontColor Function', () => {
+    it('Check output  with #000 as an input,', () => {
+        expect(invertFontColor('#000')).to.equal('#FFF');
+    });
+    it('Check output  with #FFF as an input,', () => {
+        expect(invertFontColor('#FFF')).to.equal('#000');
+    });
+    it('Check output  with #000000 as an input,', () => {
+        expect(invertFontColor('#000000')).to.equal('#FFF');
+    });
+    it('Check output  with #FFFFFF as an input,', () => {
+        expect(invertFontColor('#FFFFFF')).to.equal('#000');
+    });
+});

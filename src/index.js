@@ -5,6 +5,7 @@ const hexToRGB = require('./hexToRGB');
 const isHexColorValid = require('./isHexColorValid');
 const getFontColorHex = require('./getFontColorHex');
 const getTintsAndShades = require('./getTintsAndShades');
+const invertFontColor = require('./invertFontColor');
 
 module.exports = {
     calculateColor: calculateColor,
@@ -14,4 +15,5 @@ module.exports = {
     hexToRGB: hexToRGB,
     isHexColorValid: isHexColorValid,
     getTintsAndShades: getTintsAndShades,
+    invertFontColor: invertFontColor,
 }
