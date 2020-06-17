@@ -1,6 +1,6 @@
 {
   "name": "@soft-ui-generator/color-processing-library",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A small library for color processing",
   "main": "src/index.js",
   "scripts": {

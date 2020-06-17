@@ -22,13 +22,7 @@ export function calculateShadowFactor(number) {
 export function getRandomInt(maximumNumber) {
     return Math.floor(Math.random() * Math.floor(maximumNumber+1));
 }
-export function invertFont(font) {
-    if (font === '#000' || font === '#000000'){
-        return '#FFF'
-    }   else if (font === '#FFF' || font === '#FFFFFF'){
-        return '#000'
-    }
-}
+
 export function calculateColors(color, mode='complimentary') {
     switch (mode) {
         case "complimentary":
