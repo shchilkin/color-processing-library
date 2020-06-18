@@ -1,7 +1,7 @@
 # Soft UI color processing
 A small javascript library for color processing. 
 
-`color-processing-library` is available on [npm](http://npmjs.org). To install it, type:
+`color-processing-library` is available on [npm](https://www.npmjs.com/package/color-processing-library). To install it, type:
 
     npm i color-processing-library
     
