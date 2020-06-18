@@ -154,3 +154,14 @@ describe('invertFontColor Function', () => {
         expect(invertFontColor('#FFFFFF')).to.equal('#000');
     });
 });
+
+//  getHarmonyColor function test cases
+const getHarmonyColor = require('../src/index').getHarmonyColor;
+describe('getHarmonyColor Function', () => {
+    it('Check output  with #000 as an input,', () => {
+        expect(getHarmonyColor('#000')).to.equal('#FFFFFF');
+    });
+    it('Check output  with #ED2939 as an input,', () => {
+        expect(getHarmonyColor('#ED2939')).to.equal('#12D6C6');
+    });
+});
