@@ -66,7 +66,7 @@ getTintsAndShades(255, 255, 255, 85, 'hex') // returns '#D9D9D9'
 getTintsAndShades("#000") // returns '#FFF'
 ```
 `getHarmonyColor(color, mode)` - Function returns a harmony color depend on a mode
-> ❗️Note This function currently works only in complementary mode
+> ❗ ️Note This function currently works only in complementary mode
 
 >Example
 ```javascript
