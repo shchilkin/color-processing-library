@@ -165,3 +165,14 @@ describe('getHarmonyColor Function', () => {
         expect(getHarmonyColor('#ED2939')).to.equal('#12D6C6');
     });
 });
+
+//  ColorConversionUnit test cases
+const colorConversion = require('../src/colorConversion')
+describe('Color Conversion Unit', ()=>{
+    it('hslToRGB function exist', ()=>{
+       expect(colorConversion.hslToRGB(100,10,20)).to.equal("hslToRGB function");
+    });
+    it('rgbToHSL function exist', ()=>{
+        expect(colorConversion.rgbToHSL(100,10,20)).to.equal("rgbToHSL function");
+    });
+});
