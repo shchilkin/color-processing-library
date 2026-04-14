@@ -1,23 +1,42 @@
 {
   "name": "color-processing-library",
-  "version": "1.2.5",
-  "description": "A small library for color processing",
-  "main": "src/index.js",
+  "version": "2.0.0",
+  "description": "A modern TypeScript library for color processing",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
-    "test": "mocha tests/test.js"
+    "test": "vitest run",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "format": "prettier --write src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soft-ui-generator/color-processing-library.git"
+    "url": "git+https://github.com/shchilkin/color-processing-library.git"
   },
   "author": "Aleksandr Shchilkin <crazyredkitten@icloud.com> (https://crazyredkitten.media/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/soft-ui-generator/color-processing-library/issues"
+    "url": "https://github.com/shchilkin/color-processing-library/issues"
   },
-  "homepage": "https://github.com/soft-ui-generator/color-processing-library#readme",
+  "homepage": "https://github.com/shchilkin/color-processing-library#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^8.0.1"
+    "@typescript-eslint/eslint-plugin": "^8.58.2",
+    "@typescript-eslint/parser": "^8.58.2",
+    "@vitest/coverage-v8": "^4.1.4",
+    "eslint": "^10.2.0",
+    "prettier": "^3.8.2",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.4"
   }
 }
