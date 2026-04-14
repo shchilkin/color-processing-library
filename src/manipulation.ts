@@ -38,6 +38,9 @@ export function invert(hex: string): string {
 
 export function getTintsAndShades(hex: string, steps = 10): string[] {
   const { h, s } = hexToHsl(hex);
+  if (steps <= 1) {
+    return [hslToHex(h, s, 50)];
+  }
   const result: string[] = [];
   for (let i = 0; i < steps; i++) {
     const l = 10 + (80 / (steps - 1)) * i;
